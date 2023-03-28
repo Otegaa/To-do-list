@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  background-color: #ccc;
+}
+
+.container {
+  padding: 20rem 45rem;
+}
+
+.to-do-body {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.3);
+}
+
+.to-do-body > * {
+  border-bottom: 1px solid #ccc;
+}
+
+.to-do-heading-container,
+.to-do-add,
+.to-do-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.to-do-heading,
+.to-do-add-text,
+.to-do-clear {
+  font-size: 2rem;
+  color: #777;
+}
+
+.to-do-heading-container i,
+.to-do-add i,
+.to-do-btn-del i {
+  color: #777;
+}
+
+.to-do-add-text {
+  font-style: italic;
+}
+
+.to-do-list > *:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.to-do-list-task {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.to-do-text {
+  font-size: 1.7rem;
+}
+
+.to-do-clear {
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  font-weight: 300;
+}
