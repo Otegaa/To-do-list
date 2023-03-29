@@ -57,7 +57,12 @@ body {
 }
 
 .to-do-add-text {
+  border: none;
   font-style: italic;
+}
+
+.to-do-add-text:focus {
+  outline: none;
 }
 
 .to-do-list > *:not(:last-child) {
