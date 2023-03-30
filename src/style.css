@@ -59,9 +59,11 @@ body {
 .to-do-add-text {
   border: none;
   font-style: italic;
+  width: 100%;
 }
 
-.to-do-add-text:focus {
+.to-do-add-text:focus,
+[contenteditable]:focus {
   outline: none;
 }
 
@@ -86,7 +88,15 @@ body {
   font-weight: 300;
 }
 
-.display-msg {
-  padding: 2rem;
-  font-size: 1.5rem;
+.bg-color {
+  background-color: #d9d8ad;
+}
+
+.hidden {
+  display: none;
+}
+
+.remove-list,
+.add-trash {
+  cursor: all-scroll;
 }
