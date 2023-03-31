@@ -20,7 +20,7 @@ const wholeList = function () {
             </div>
             <div class="to-do-btn-del">
               <i class="fas fa-ellipsis-v fa-2x remove-list" id= ${item.index}  ></i>
-              <i class='fa-solid fa-trash-can fa-2x hidden add-trash' id= ${item.index}></i>
+              <i class="fa-solid fa-trash-can fa-2x hidden add-trash" id= ${item.index}></i>
             </div>
           </li>`;
     });
@@ -87,8 +87,9 @@ const wholeList = function () {
     if (!target) return;
     if (target) {
       getStorage[targetID].desc = target.textContent;
+      target.parentElement.parentElement.classList.remove('bg-color');
       setStorage();
-      displayList();
+      window.location.reload();
     }
   });
 
