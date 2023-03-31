@@ -1,6 +1,7 @@
 const list = document.querySelector('.to-do-list');
 const addText = document.querySelector('.to-do-add-text');
 const form = document.querySelector('.form');
+const enterBtn = document.querySelector('.enter-btn');
 
 const wholeList = function () {
   let getStorage = JSON.parse(localStorage.getItem('list')) || [];
@@ -14,8 +15,8 @@ const wholeList = function () {
       list.innerHTML += `
          <li class="list-task">
             <div class="to-do-list-task">
-              <input type="checkbox" class="to-do-input" />
-              <p class="to-do-text">${item.desc}</p>
+              <input type="checkbox" class="to-do-input" id= ${item.index}/>
+              <p class="to-do-text" id= ${item.index}>${item.desc}</p>
             </div>
             <div class="to-do-btn-del">
               <i class="fas fa-ellipsis-v fa-2x remove-list" id= ${item.index}  ></i>
@@ -40,12 +41,9 @@ const wholeList = function () {
     addText.value = '';
   };
 
-  // Press the enter key since there is no submit button
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && addText.value) {
-      form.addEventListener('submit', getList);
-    }
-  });
+  // Submit the form
+  form.addEventListener('submit', getList);
+  enterBtn.addEventListener('click', getList);
 
   // Function for deleting the button
   const removeListIndex = (index) => {
@@ -54,6 +52,17 @@ const wholeList = function () {
     setStorage();
   };
 
+  list.addEventListener('click', (e) => {
+    const target = e.target.closest('.add-trash');
+    if (!target) return;
+    removeListIndex(target.id);
+    getStorage.forEach((item, i) => {
+      item.index = i + 1;
+    });
+    setStorage();
+  });
+
+  // Function for editing the list
   const editList = (target) => {
     target.parentElement.previousElementSibling.children[1].setAttribute(
       'contenteditable',
@@ -65,21 +74,22 @@ const wholeList = function () {
     target.nextElementSibling.classList.toggle('hidden');
   };
 
-  document.addEventListener('click', (e) => {
+  list.addEventListener('click', (e) => {
     const target = e.target.closest('.remove-list');
 
     if (!target) return;
-    if (target) {
-      editList(target);
-      console.log(target);
-    }
+    editList(target);
   });
 
-  document.addEventListener('click', (e) => {
-    const target = e.target.closest('.add-trash');
+  list.addEventListener('focusout', (e) => {
+    const target = e.target.closest('.to-do-text');
+    const targetID = Number(target.id - 1);
     if (!target) return;
-    removeListIndex(target.id);
-    console.log(target.id);
+    if (target) {
+      getStorage[targetID].desc = target.textContent;
+      setStorage();
+      displayList();
+    }
   });
 
   displayList();
