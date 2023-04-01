@@ -1,3 +1,5 @@
+import domLoaded from './interactive.js';
+
 const list = document.querySelector('.to-do-list');
 const addText = document.querySelector('.to-do-add-text');
 const form = document.querySelector('.form');
@@ -119,17 +121,6 @@ const wholeList = function () {
       setStorage();
     }
   });
-
-  const domLoaded = () => {
-    const text = document.querySelectorAll('.to-do-text');
-    const checkbox = [...document.querySelectorAll('.to-do-input')];
-    getStorage.forEach((item, i) => {
-      if (item.completed === true) {
-        checkbox[i].checked = true;
-        text[i].style.textDecoration = 'line-through';
-      }
-    });
-  };
 
   window.addEventListener('DOMContentLoaded', domLoaded);
 
