@@ -1,5 +1,3 @@
-import domLoaded from './interactive.js';
-
 const list = document.querySelector('.to-do-list');
 const addText = document.querySelector('.to-do-add-text');
 const form = document.querySelector('.form');
@@ -19,17 +17,17 @@ const wholeList = function () {
          <li class="list-task">
             <div class="to-do-list-task">
               <input type="checkbox" class="to-do-input" id= ${
-  item.index - 1
-} />
+                item.index - 1
+              } />
               <p class="to-do-text" id= ${item.index - 1} >${item.desc}</p>
             </div>
             <div class="to-do-btn-del">
               <i class="fas fa-ellipsis-v fa-2x remove-list" id= ${
-  item.index
-}  ></i>
+                item.index
+              }  ></i>
               <i class="fa-solid fa-trash-can fa-2x hidden add-trash" id= ${
-  item.index
-}></i>
+                item.index
+              }></i>
             </div>
           </li>`;
     });
@@ -75,7 +73,7 @@ const wholeList = function () {
   const editList = (target) => {
     target.parentElement.previousElementSibling.children[1].setAttribute(
       'contenteditable',
-      'true',
+      'true'
     );
     target.parentElement.previousElementSibling.children[1].focus();
     target.parentElement.parentElement.classList.add('bg-color');
@@ -122,9 +120,20 @@ const wholeList = function () {
     }
   });
 
+  const domLoaded = () => {
+    const text = document.querySelectorAll('.to-do-text');
+    const checkbox = [...document.querySelectorAll('.to-do-input')];
+    getStorage.forEach((item, i) => {
+      if (item.completed === true) {
+        checkbox[i].checked = true;
+        text[i].style.textDecoration = 'line-through';
+      }
+    });
+  };
+
   window.addEventListener('DOMContentLoaded', domLoaded);
 
-  // Function to delete all selected buttons.
+  // Function to delete all completed tasks.
   const delBtn = () => {
     getStorage = getStorage.filter((item) => item.completed === false);
     getStorage.forEach((item, i) => {
