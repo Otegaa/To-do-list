@@ -55,6 +55,12 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+🚀 Live Demo
+
+- https://otegaa.github.io/To-do-list/dist/
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
