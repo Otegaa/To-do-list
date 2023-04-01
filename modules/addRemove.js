@@ -17,17 +17,17 @@ const wholeList = function () {
          <li class="list-task">
             <div class="to-do-list-task">
               <input type="checkbox" class="to-do-input" id= ${
-                item.index - 1
-              } />
+  item.index - 1
+} />
               <p class="to-do-text" id= ${item.index - 1} >${item.desc}</p>
             </div>
             <div class="to-do-btn-del">
               <i class="fas fa-ellipsis-v fa-2x remove-list" id= ${
-                item.index
-              }  ></i>
+  item.index
+}  ></i>
               <i class="fa-solid fa-trash-can fa-2x hidden add-trash" id= ${
-                item.index
-              }></i>
+  item.index
+}></i>
             </div>
           </li>`;
     });
@@ -73,7 +73,7 @@ const wholeList = function () {
   const editList = (target) => {
     target.parentElement.previousElementSibling.children[1].setAttribute(
       'contenteditable',
-      'true'
+      'true',
     );
     target.parentElement.previousElementSibling.children[1].focus();
     target.parentElement.parentElement.classList.add('bg-color');
