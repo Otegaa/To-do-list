@@ -86,6 +86,7 @@ body {
   width: 100%;
   padding: 2rem 4rem;
   font-weight: 300;
+  cursor: pointer;
 }
 
 .bg-color {
@@ -99,4 +100,8 @@ body {
 .remove-list,
 .add-trash {
   cursor: all-scroll;
+}
+
+.enter-btn {
+  cursor: pointer;
 }
