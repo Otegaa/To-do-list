@@ -60,8 +60,7 @@ describe('todoAdder', () => {
     const editedTask = document.getElementsByClassName('remove-list');
     editList(editedTask[0]);
 
-    const bgColorSet =
-      editedTask[0].parentElement.parentElement.classList.contains('bg-color');
+    const bgColorSet = editedTask[0].parentElement.parentElement.classList.contains('bg-color');
 
     expect(bgColorSet).toBe(true);
   });
