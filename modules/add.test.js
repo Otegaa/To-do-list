@@ -72,6 +72,4 @@ describe('todoAdder', () => {
     const getStorage = getLocalStorage();
     expect(getStorage[0].completed).toBe(true);
   });
-
-  
 });
