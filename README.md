@@ -95,6 +95,12 @@ Install this project with:
 - Twitter: [@twitterhandle](https://twitter.com/O_tegaaa)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/blessing-ekiugbo/)
 
+
+👤 **Author2**
+
+- GitHub: [@githubhandle](https://github.com/Naledi-Dikgale)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/naledi-dikgale-068423159/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
