@@ -2,7 +2,13 @@
  * @jest-environment jsdom
  */
 import {
-  getList, removeListIndex, editList, delBtn, checkComplete, getLocalStorage, } from './addRemove';
+  getList,
+  removeListIndex,
+  editList,
+  delBtn,
+  checkComplete,
+  getLocalStorage,
+} from './addRemove';
 
 describe('todoAdder', () => {
   document.body.innerHTML = `
@@ -54,7 +60,8 @@ describe('todoAdder', () => {
     const editedTask = document.getElementsByClassName('remove-list');
     editList(editedTask[0]);
 
-    const bgColorSet = editedTask[0].parentElement.parentElement.classList.contains('bg-color');
+    const bgColorSet =
+      editedTask[0].parentElement.parentElement.classList.contains('bg-color');
 
     expect(bgColorSet).toBe(true);
   });
@@ -71,5 +78,12 @@ describe('todoAdder', () => {
     checkComplete(target, text, targetID);
     const getStorage = getLocalStorage();
     expect(getStorage[0].completed).toBe(true);
+  });
+
+  test('clear', () => {
+    delBtn();
+
+    const getStorage = getLocalStorage();
+    expect(getStorage.length).toBe(0);
   });
 });
