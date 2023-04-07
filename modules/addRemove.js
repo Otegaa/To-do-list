@@ -62,7 +62,7 @@ list.addEventListener('click', (e) => {
   setStorage(getStorage);
 });
 
-// Function for editing the list
+// Editing the list
 const editList = (target) => {
   target.parentElement.previousElementSibling.children[1].setAttribute(
     'contenteditable',
@@ -95,7 +95,7 @@ list.addEventListener('focusout', (e) => {
   }
 });
 
-// Function to check box
+// Check box
 list.addEventListener('change', (e) => {
   const target = e.target.closest('.to-do-input');
   const text = e.target.nextElementSibling;
