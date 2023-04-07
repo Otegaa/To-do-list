@@ -1,10 +1,10 @@
 /**
  * @jest-environment jsdom
  */
+import {
+  getList, removeListIndex, editList, delBtn, checkComplete, getLocalStorage, } from './addRemove';
 
-import { addList, removeListIndex } from './addRemove.js';
-
-describe('to add function', () => {
+describe('todoAdder', () => {
   document.body.innerHTML = `
   <div class="container">
   <div class="to-do-body">
@@ -23,27 +23,55 @@ describe('to add function', () => {
       </form>
       <i class="fas fa-rotate-90 enter-btn">&#xf3be;</i>
     </div>
+
     <ul class="to-do-list"></ul>
   </div>
   <button class="to-do-clear">Clear all completed</button>
 </div>`;
 
-  test('should add first task', () => {
+  test('todoAdder', () => {
     const task = document.getElementsByClassName('to-do-text');
-    addList('learn code');
+    getList('learn code');
     expect(task.length).toBe(1);
     expect(task[0].textContent).toBe('learn code');
   });
-  test('should add second task', () => {
+
+  test('todoAdder', () => {
     const task = document.getElementsByClassName('to-do-text');
-    addList('complete task');
+    getList('complete task');
     expect(task.length).toBe(2);
     expect(task[1].textContent).toBe('complete task');
   });
-  test('should remove first task', () => {
+
+  test('remove task', () => {
     const task = document.getElementsByClassName('to-do-text');
     removeListIndex('1');
     expect(task.length).toBe(1);
     expect(task[0].textContent).toBe('complete task');
   });
+
+  test('edit task', () => {
+    const editedTask = document.getElementsByClassName('remove-list');
+    editList(editedTask[0]);
+
+    const bgColorSet = editedTask[0].parentElement.parentElement.classList.contains('bg-color');
+
+    expect(bgColorSet).toBe(true);
+  });
+
+  test('check task', () => {
+    const uniqueTarget = document.getElementsByClassName('to-do-text');
+    const target = uniqueTarget[0];
+    const targetID = 0;
+    target.checked = true;
+    const text = {
+      style: { textDecoration: 'none' },
+    };
+
+    checkComplete(target, text, targetID);
+    const getStorage = getLocalStorage();
+    expect(getStorage[0].completed).toBe(true);
+  });
+
+  
 });
